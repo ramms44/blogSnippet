@@ -1,1 +1,1 @@
-# Laravel Snippet with admin panel
+# Blog-System-in-Laravel
