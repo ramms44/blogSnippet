@@ -8,77 +8,86 @@
 @endpush
 
 @section('content')
-    <div class="container-fluid">
-        <div class="block-header">
-            <a class="btn btn-primary waves-effect" href="{{ route('admin.ads.create') }}">
-                <i class="material-icons">add</i>
-                <span>Add New Ads</span>
-            </a>
-        </div>
-        <!-- Exportable Table -->
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            ALL ADS
-                            <span class="badge bg-blue">{{ $ad->count() }}</span>
-                        </h2>
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Post Count</th>
-                                    <th>Created At</th>
-                                    <th>Updated At</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Post Count</th>
-                                    <th>Created At</th>
-                                    <th>Updated At</th>
-                                    <th>Action</th>
-                                </tr>
-                                </tfoot>
-                                <tbody>
-                                @foreach($ad as $key=>$ads)
-                                    <tr>
-                                        <td>{{ $key + 1 }}</td>
-                                        <td>{{ $ads->name }}</td>
-                                        <td>{{ $ads->posts->count() }}</td>
-                                        <td>{{ $ads->created_at }}</td>
-                                        <td>{{ $ads->updated_at }}</td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.ads.edit',$ads->id) }}" class="btn btn-info waves-effect">
-                                                <i class="material-icons">edit</i>
-                                            </a>
-                                            <button class="btn btn-danger waves-effect" type="button" onclick="deleteAds({{ $ads->id }})">
-                                                <i class="material-icons">delete</i>
-                                            </button>
-                                            <form id="delete-form-{{ $ads->id }}" action="{{ route('admin.ads.destroy',$ads->id) }}" method="POST" style="display: none;">
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+    <div class="content-page">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="block-header">
+                    <a class="btn btn-purple btn-rounded w-md waves-effect waves-light m-b-5" href="{{ route('admin.ads.create') }}">
+                        <span>Add New Ads</span>
+                    </a>
+                </div>
+                <!-- Exportable Table -->
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+
+                                <h2>
+                                    ALL ADS
+                                    <span class="badge bg-blue">{{ $ad->count() }}</span>
+                                </h2>
+                            </div>
+
+
+
+
+
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                        <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Post Count</th>
+                                            <th>Created At</th>
+                                            <th>Updated At</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Post Count</th>
+                                            <th>Created At</th>
+                                            <th>Updated At</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        @foreach($ad as $key=>$ads)
+                                            <tr>
+                                                <td>{{ $key + 1 }}</td>
+                                                <td>{{ $ads->name }}</td>
+                                                <td>{{ $ads->posts->count() }}</td>
+                                                <td>{{ $ads->created_at }}</td>
+                                                <td>{{ $ads->updated_at }}</td>
+                                                <td class="text-center">
+                                                    <a href="{{ route('admin.ads.edit',$ads->id) }}" class="btn btn-info waves-effect">
+                                                        <i class="material-icons">edit</i>
+                                                    </a>
+                                                    <button class="btn btn-danger waves-effect" type="button" onclick="deleteAds({{ $ads->id }})">
+                                                        <i class="material-icons">delete</i>
+                                                    </button>
+                                                    <form id="delete-form-{{ $ads->id }}" action="{{ route('admin.ads.destroy',$ads->id) }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- #END# Exportable Table -->
             </div>
         </div>
-        <!-- #END# Exportable Table -->
     </div>
+
 @endsection
 
 @push('js')

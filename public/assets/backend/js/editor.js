@@ -21,24 +21,7 @@ $(document).ready(function(){
     }
   });
 
-  // Store contents of textarea in sessionStorage
-  $("textarea").keydown(function(){
-      sessionStorage[$(this).attr("id")] = $(this).val();
-  });
-  $("#html").html(sessionStorage["html"]);
-  $("#css").html(sessionStorage["css"]);
-  $("#js").html(sessionStorage["js"]);
-  function init() {
-    if (sessionStorage["html"]) {
-        $("#html").val(sessionStorage["html"]);
-      }
-    if (sessionStorage["css"]) {
-        $("#css").val(sessionStorage["css"]);
-      }  
-    if (sessionStorage["js"]) {
-        $("#js").val(sessionStorage["js"]);
-      }
-  };
+
 
   // Clear textareas with button
   $(".clearLink").click(clearAll);

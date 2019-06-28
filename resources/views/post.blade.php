@@ -16,8 +16,7 @@
     <link href="{{ asset('assets/frontend/css/single-post/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/frontend/css/single-post/responsive.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/plugins/markitup/skins/markitup/style.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/plugins/markitup/sets/default/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/backend/css/prism.css') }}">
     <style>
         .header-bg{
             height: 400px;
@@ -33,6 +32,8 @@
 
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href="{{ asset('assets/backend/css/global.css') }}" rel="stylesheet">
+
+
 
 @endpush
 
@@ -78,10 +79,9 @@
 
                                 <section>
                                     <h3>Code Snippet auto preview</h3><a class="clearLink" href="#" title="Click to clear all">clear</a>
-                                    <textarea id="html" value="" placeholder="HTML" autocapitalize="off">{!! $post->body !!}</textarea>
-                                    <textarea id="css" value="" placeholder="CSS" autocapitalize="off">tes</textarea>
-                                    <textarea id="js" value="" placeholder="JavaScript" autocapitalize="off">js generate... if not generate please insert js code snippet here!</textarea>
-                                    <ul><b>Preview:</b> </ul>
+                                    <textarea id="html" value="" placeholder="HTML" autocapitalize="off">{!! $post->html !!}</textarea>
+                                    <textarea id="css" value="" placeholder="CSS" autocapitalize="off">{!! $post->css !!}</textarea>
+                                    <textarea id="js" value="" placeholder="JavaScript" autocapitalize="off">{!! $post->js !!}</textarea>
                                     <iframe id="preview"></iframe>
                                 </section>
 
@@ -314,15 +314,7 @@
     <script src="{{ asset('assets/backend/js/editor.js') }}" type="text/javascript"></script>
 
 
-
-    <script type="text/javascript" src="{{ asset('assets/backend/plugins/markitup/sets/default/set.js') }}"></script>
-
-    <script type="text/javascript" src="{{ asset('assets/backend/plugins/markitup/jquery.markitup.js') }}"></script>
-    <!-- TinyMCE -->
-
-    <script type="text/javascript" >
-        $(document).ready(function() {
-            $("#markItUp").markItUp(mySettings);
-        });
-    </script>
+    <script src="{{ asset('assets/backend/js/prism.js') }}"></script>
+    <script src="{{ asset('assets/backend/js/prism-highlight.js') }}"></script>
+    <script src="{{ asset('assets/backend/js/app.js') }}"></script>
 @endpush
