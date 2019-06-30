@@ -90,6 +90,7 @@ class PostController extends Controller
         $post->css = $request->css;
         $post->js = $request->js;
 
+
         if(isset($request->status))
         {
             $post->status = true;

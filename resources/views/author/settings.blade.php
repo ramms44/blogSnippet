@@ -7,46 +7,33 @@
 @endpush
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            SETTINGS
-                        </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="body">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                                <a href="#profile_with_icon_title" data-toggle="tab">
-                                    <i class="material-icons">face</i> UPDATE PROFILE
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#change_password_with_icon_title" data-toggle="tab">
-                                    <i class="material-icons">change_history</i> CHANGE PASSWORD
-                                </a>
-                            </li>
+    <div class="content-page">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card-box widget-box-one">
+                            <div class="header">
+                                <h4>
+                                    <b>Settings</b>
+                                </h4>
 
-                        </ul>
+                            </div>
 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade in active" id="profile_with_icon_title">
+                            <br><br>
+
+                            <div class="body">
+                                <!-- Nav tabs -->
+
+
+
+                                <div class="header">
+                                    <h4>
+                                        Update Profile
+                                    </h4>
+
+                                </div>
+                                <br>
                                 <form method="POST" action="{{ route('author.profile.update') }}" class="form-horizontal" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -102,12 +89,19 @@
 
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                            <button type="submit" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                                            <button type="submit" class="btn btn-sm btn-purple m-t-15 waves-effect">Update Profile</button>
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="change_password_with_icon_title">
+                                <br><br>
+
+                                <div class="header">
+                                    <h4>
+                                        Update Password
+                                    </h4>
+
+                                </div>
+                                <br>
                                 <form method="POST" action="{{ route('author.password.update') }}" class="form-horizontal">
                                     @csrf
                                     @method('PUT')
@@ -154,17 +148,23 @@
 
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                            <button type="submit" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                                            <button type="submit" class="btn btn-sm btn-purple m-t-15 waves-effect">Change Password</button>
                                         </div>
                                     </div>
                                 </form>
+
+                                <!-- Tab panes -->
+
                             </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
 
 @push('js')

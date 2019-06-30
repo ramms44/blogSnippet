@@ -15,16 +15,16 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header">
-                                <h2>
-                                    ALL COMMENTS
-                                    <span class="badge bg-blue">{{ $comments->count() }}</span>
-                                </h2>
+                                <h4>
+                                    All Comments
+                                    <span class="badge-pill bg-primary">{{ $comments->count() }}</span>
+                                </h4>
                             </div>
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <table class="table m-0 table-colored-bordered table-bordered-purple">
                                         <thead>
                                         <tr>
                                             <th class="text-center">Comments Info</th>
@@ -74,7 +74,7 @@
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn btn-danger waves-effect" onclick="deleteComment({{ $comment->id }})">
-                                                        <i class="material-icons">delete</i>
+                                                        <i class="mdi mdi-delete-empty"></i>
                                                     </button>
                                                     <form id="delete-form-{{ $comment->id }}" method="POST" action="{{ route('admin.comment.destroy',$comment->id) }}" style="display: none;">
                                                         @csrf

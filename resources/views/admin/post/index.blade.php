@@ -20,22 +20,22 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>
-                                    ALL POSTS
-                                    <span class="badge bg-blue">{{ $posts->count() }}</span>
-                                </h2>
+                        <table class="table m-0">
+                            <thead class="bg-purple text-white">
+                                <h4>
+                                    All Posts
+                                    <span class="badge-pill bg-primary">{{ $posts->count() }}</span>
+                                </h4>
                             </div>
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                        <thead>
+                                    <table class="table m-0">
+                                        <thead class="bg-purple text-white">
                                         <tr>
                                             <th>ID</th>
                                             <th>Title</th>
                                             <th>Author</th>
-                                            <th><i class="material-icons">visibility</i></th>
+                                            <th><i class="mdi mdi-eye"></i></th>
                                             <th>Is Approved</th>
                                             <th>Status</th>
                                             <th>Created At</th>
@@ -48,7 +48,7 @@
                                             <th>ID</th>
                                             <th>Title</th>
                                             <th>Author</th>
-                                            <th><i class="material-icons">visibility</i></th>
+                                            <th><i class="mdi mdi-eye"></i></th>
                                             <th>Is Approved</th>
                                             <th>Status</th>
                                             <th>Created At</th>
@@ -81,13 +81,13 @@
                                                 {{--<td>{{ $post->updated_at }}</td>--}}
                                                 <td class="text-center">
                                                     <a href="{{ route('admin.post.show',$post->id) }}" class="btn btn-info waves-effect">
-                                                        <i class="material-icons">visibility</i>
+                                                        <i class="mdi mdi-eye"></i>
                                                     </a>
                                                     <a href="{{ route('admin.post.edit',$post->id) }}" class="btn btn-info waves-effect">
-                                                        <i class="material-icons">edit</i>
+                                                        <i class="mdi mdi-pencil-outline"></i>
                                                     </a>
                                                     <button class="btn btn-danger waves-effect" type="button" onclick="deletePost({{ $post->id }})">
-                                                        <i class="material-icons">delete</i>
+                                                        <i class="mdi mdi-delete-empty"></i>
                                                     </button>
                                                     <form id="delete-form-{{ $post->id }}" action="{{ route('admin.post.destroy',$post->id) }}" method="POST" style="display: none;">
                                                         @csrf

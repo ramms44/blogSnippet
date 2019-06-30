@@ -2,8 +2,8 @@
 
 @section('title','Pofile')
 @push('css')
-    <link href="{{ asset('assets/frontend/css/profile/styles.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/frontend/css/profile/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/category/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/category/responsive.css') }}" rel="stylesheet">
     <style>
         .favorite_posts{
             color: blue;
@@ -13,7 +13,7 @@
 
 @section('content')
     <div class="slider display-table center-text">
-        <h1 class="title display-table-cell"><b>{{ $author->name }}</b></h1>
+        <h2 class="title display-table-cell"><b>{{ $author->name }}</b></h2>
     </div><!-- slider -->
 
     <section class="blog-area section">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Author;
 
+use App\Ads;
 use App\Category;
 use App\Notifications\NewAuthorPost;
 use App\Tag;
@@ -38,7 +39,8 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('author.post.create',compact('categories','tags'));
+        $ad = Ads::all();
+        return view('author.post.create',compact('categories','tags', 'ad'));
     }
 
     /**
@@ -54,6 +56,7 @@ class PostController extends Controller
             'image' => 'required',
             'categories' => 'required',
             'tags' => 'required',
+            'ad' => 'required',
             'html' => 'required',
             'css' => 'required',
             'js' => 'required',
@@ -85,6 +88,7 @@ class PostController extends Controller
         $post->html = $request->html;
         $post->css = $request->css;
         $post->js = $request->js;
+
         if(isset($request->status))
         {
             $post->status = true;
@@ -96,6 +100,7 @@ class PostController extends Controller
 
         $post->categories()->attach($request->categories);
         $post->tags()->attach($request->tags);
+        $post->ad()->attach($request->ad);
 
         $users = User::where('role_id','1')->get();
         Notification::send($users, new NewAuthorPost($post));
@@ -134,7 +139,8 @@ class PostController extends Controller
         }
         $categories = Category::all();
         $tags = Tag::all();
-        return view('author.post.edit',compact('post','categories','tags'));
+        $ad = Ads::all();
+        return view('author.post.edit',compact('post','categories','tags','ad'));
     }
 
     /**
@@ -156,6 +162,7 @@ class PostController extends Controller
             'image' => 'image',
             'categories' => 'required',
             'tags' => 'required',
+            'ad' => 'required',
             'html' => 'required',
             'css' => 'required',
             'js' => 'required',
@@ -202,6 +209,7 @@ class PostController extends Controller
 
         $post->categories()->sync($request->categories);
         $post->tags()->sync($request->tags);
+        $post->ad()->sync($request->ad);
 
         Toastr::success('Post Successfully Updated :)','Success');
         return redirect()->route('author.post.index');
@@ -226,6 +234,7 @@ class PostController extends Controller
         }
         $post->categories()->detach();
         $post->tags()->detach();
+        $post->ad()->detach();
         $post->delete();
         Toastr::success('Post Successfully Deleted :)','Success');
         return redirect()->back();

@@ -11,30 +11,25 @@
     <div class="content-page">
         <div class="content">
             <div class="container-fluid">
-                <div class="block-header">
-                    <a class="btn btn-purple btn-rounded w-md waves-effect waves-light m-b-5" href="{{ route('admin.post.create') }}">
-                        <span>Add New Post</span>
-                    </a>
-                </div>
                 <!-- Exportable Table -->
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header">
-                                <h2>
-                                    ALL POSTS
-                                    <span class="badge bg-blue">{{ $posts->count() }}</span>
-                                </h2>
+                                <h4>
+                                    All Posts
+                                    <span class="badge-pill bg-primary">{{ $posts->count() }}</span>
+                                </h4>
                             </div>
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                        <thead>
+                                    <table class="table m-0">
+                                        <thead class="bg-purple text-white">
                                         <tr>
                                             <th>ID</th>
                                             <th>Title</th>
                                             <th>Author</th>
-                                            <th><i class="material-icons">visibility</i></th>
+                                            <th><i class="mdi mdi-eye"></i></th>
                                             <th>Is Approved</th>
                                             <th>Status</th>
                                             <th>Created At</th>
@@ -47,7 +42,7 @@
                                             <th>ID</th>
                                             <th>Title</th>
                                             <th>Author</th>
-                                            <th><i class="material-icons">visibility</i></th>
+                                            <th><i class="mdi mdi-eye"></i></th>
                                             <th>Is Approved</th>
                                             <th>Status</th>
                                             <th>Created At</th>
@@ -71,7 +66,7 @@
                                                 </td>
                                                 <td>
                                                     @if($post->status == true)
-                                                        <span class="badge bg-blue">Published</span>
+                                                        <span class="badge bg-primary">Published</span>
                                                     @else
                                                         <span class="badge bg-pink">Pending</span>
                                                     @endif
@@ -81,7 +76,7 @@
                                                 <td class="text-center">
                                                     @if($post->is_approved == false)
                                                         <button type="button" class="btn btn-success waves-effect" onclick="approvePost({{ $post->id }})">
-                                                            <i class="material-icons">done</i>
+                                                            <i class="mdi mdi-check "></i>
                                                         </button>
                                                         <form method="post" action="{{ route('admin.post.approve',$post->id) }}" id="approval-form-{{ $post->id }}" style="display: none">
                                                             @csrf
@@ -89,13 +84,13 @@
                                                         </form>
                                                     @endif
                                                     <a href="{{ route('admin.post.show',$post->id) }}" class="btn btn-info waves-effect">
-                                                        <i class="material-icons">visibility</i>
+                                                        <i class="mdi mdi-eye"></i>
                                                     </a>
                                                     <a href="{{ route('admin.post.edit',$post->id) }}" class="btn btn-info waves-effect">
-                                                        <i class="material-icons">edit</i>
+                                                        <i class="mdi mdi-pencil-outline"></i>
                                                     </a>
                                                     <button class="btn btn-danger waves-effect" type="button" onclick="deletePost({{ $post->id }})">
-                                                        <i class="material-icons">delete</i>
+                                                        <i class="mdi mdi-delete-empty"></i>
                                                     </button>
                                                     <form id="delete-form-{{ $post->id }}" action="{{ route('admin.post.destroy',$post->id) }}" method="POST" style="display: none;">
                                                         @csrf

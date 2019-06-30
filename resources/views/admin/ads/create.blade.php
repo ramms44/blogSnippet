@@ -13,11 +13,11 @@
                 <!-- Vertical Layout | With Floating Label -->
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header">
-                                <h2>
-                                    ADD NEW ADS
-                                </h2>
+                                <h4>
+                                    Add New Ads
+                                </h4>
                             </div>
                             <div class="row">
                                 <div class="col-lg-4">
@@ -32,6 +32,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="body">
                                 <label class="form-label">Code Ads</label>
                                 <form action="{{ route('admin.ads.store') }}" method="POST">
@@ -43,8 +44,8 @@
                                         </div>
                                     </div>
 
-                                    <a  class="btn btn-danger m-t-15 waves-effect" href="{{ route('admin.ads.index') }}">BACK</a>
-                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
+                                    <a  class="btn btn-sm btn-danger m-t-15 waves-effect" href="{{ route('admin.ads.index') }}">BACK</a>
+                                    <button type="submit" class="btn btn-sm btn-primary m-t-15 waves-effect">SUBMIT</button>
                                 </form>
                             </div>
                         </div>

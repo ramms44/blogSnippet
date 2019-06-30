@@ -20,17 +20,15 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header">
-                                <h2>
-                                    ALL CATEGORIES
-                                    <span class="badge bg-blue">{{ $categories->count() }}</span>
-                                </h2>
+                                <h4> ALL CATEGORIES <span class="badge-pill bg-primary">{{ $categories->count() }}</span>
+                                </h4>
                             </div>
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                        <thead>
+                                    <table class="table m-0">
+                                        <thead class="bg-purple text-white">
                                         <tr>
                                             <th>ID</th>
                                             <th>Name</th>
@@ -59,11 +57,12 @@
                                                 <td>{{ $category->created_at }}</td>
                                                 <td>{{ $category->updated_at }}</td>
                                                 <td class="text-center">
-                                                    <a href="{{ route('admin.category.edit',$category->id) }}" class="btn btn-info waves-effect">
-                                                        <i class="material-icons">edit</i>
+
+                                                    <a href="{{ route('admin.category.edit',$category->id) }}" class="btn btn-primary waves-effect">
+                                                        <i class="mdi mdi-pencil-outline "></i>
                                                     </a>
                                                     <button class="btn btn-danger waves-effect" type="button" onclick="deleteCategory({{ $category->id }})">
-                                                        <i class="material-icons">delete</i>
+                                                        <i class="mdi mdi-delete-empty "></i>
                                                     </button>
                                                     <form id="delete-form-{{ $category->id }}" action="{{ route('admin.category.destroy',$category->id) }}" method="POST" style="display: none;">
                                                         @csrf

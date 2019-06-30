@@ -15,10 +15,10 @@
         <div class="content">
             <div class="container-fluid">
                 <!-- Vertical Layout | With Floating Label -->
-                <a href="{{ route('admin.post.index') }}" class="btn btn-danger waves-effect">BACK</a>
+                <a href="{{ route('admin.post.index') }}" class="btn btn-sm btn-danger waves-effect">BACK</a>
                 @if($post->is_approved == false)
-                    <button type="button" class="btn btn-success waves-effect pull-right" onclick="approvePost({{ $post->id }})">
-                        <i class="material-icons">done</i>
+                    <button type="button" class="btn btn-sm btn-success waves-effect pull-right" onclick="approvePost({{ $post->id }})">
+                        <i class="mdi mdi-check-circle-outline"></i>
                         <span>Approve</span>
                     </button>
                     <form method="post" action="{{ route('admin.post.approve',$post->id) }}" id="approval-form" style="display: none">
@@ -35,16 +35,16 @@
                 <br>
                 <div class="row clearfix">
                     <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header">
-                                <h2>
+                                <h4>
                                     {{ $post->title }}
                                     <small>Posted By <strong> <a href="">{{ $post->user->name }}</a></strong> on {{ $post->created_at->toFormattedDateString() }}</small>
-                                </h2>
+                                </h4>
                             </div>
                             <div class="body">
                                 <section>
-                                    <h3>Code Snippet auto preview</h3><a class="clearLink" href="#" title="Click to clear all">clear</a>
+                                    <h4>Code Snippet auto preview</h4><a class="clearLink" href="#" title="Click to clear all">clear</a>
                                     <textarea id="html" value="" placeholder="HTML" autocapitalize="off">{!! $post->html !!}</textarea>
                                     <textarea id="css" value="" placeholder="CSS" autocapitalize="off">{!! $post->css !!}</textarea>
                                     <textarea id="js" value="" placeholder="JavaScript" autocapitalize="off">{!! $post->js !!}</textarea>
@@ -54,11 +54,11 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header bg-cyan">
-                                <h2>
+                                <h4>
                                     Categoryies
-                                </h2>
+                                </h4>
                             </div>
                             <div class="body">
                                 @foreach($post->categories as $category)
@@ -66,11 +66,11 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header bg-green">
-                                <h2>
+                                <h4>
                                     Tags
-                                </h2>
+                                </h4>
                             </div>
                             <div class="body">
                                 @foreach($post->tags as $tag)
@@ -78,11 +78,11 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header bg-amber">
-                                <h2>
+                                <h4>
                                     Featured Image
-                                </h2>
+                                </h4>
                             </div>
                             <div class="body">
                                 <img class="img-responsive thumbnail" src="{{ Storage::disk('public')->url('post/'.$post->image) }}" alt="">

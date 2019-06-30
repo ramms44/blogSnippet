@@ -38,6 +38,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <link href="{{ asset('assets/backend/css/global.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/backend/css/docs.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/backend/css/flag-icon.css') }}" rel="stylesheet">
 
 </head>
 
@@ -105,7 +107,6 @@
     var resizefunc = [];
 </script>
 
-<script src="{{ asset('assets/backend/js/modernizr.min.js') }}"></script>
 
 <!-- jQuery  -->
 <script src="{{ asset('assets/backend/js/jquery.min.js') }}"></script>
@@ -157,6 +158,7 @@
     <script src="{{ asset('assets/backend/js/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/backend/js/editor.js') }}" type="text/javascript"></script>
 
-
+    <script src="{{ asset('assets/backend/js/sweetalert2.all.js') }}"></script>
+@stack('js')
 </body>
 </html>

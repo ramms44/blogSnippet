@@ -15,17 +15,17 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header">
-                                <h2>
-                                    ALL SUBSCRIBERS
-                                    <span class="badge bg-blue">{{ $subscribers->count() }}</span>
-                                </h2>
+                                <h4>
+                                    All Subscribers
+                                    <span class="badge-pill bg-primary">{{ $subscribers->count() }}</span>
+                                </h4>
                             </div>
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                        <thead>
+                                    <table class="table m-0">
+                                        <thead class="bg-purple text-white">
                                         <tr>
                                             <th>ID</th>
                                             <th>Email</th>
@@ -52,7 +52,7 @@
                                                 <td>{{ $subscriber->updated_at }}</td>
                                                 <td class="text-center">
                                                     <button class="btn btn-danger waves-effect" type="button" onclick="deleteSubscriber({{ $subscriber->id }})">
-                                                        <i class="material-icons">delete</i>
+                                                        <i class="mdi mdi-delete-empty"></i>
                                                     </button>
                                                     <form id="delete-form-{{ $subscriber->id }}" action="{{ route('admin.subscriber.destroy',$subscriber->id) }}" method="POST" style="display: none;">
                                                         @csrf

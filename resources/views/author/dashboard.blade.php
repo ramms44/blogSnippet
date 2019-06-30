@@ -7,112 +7,154 @@
 @endpush
 
 @section('content')
-    <div class="container-fluid">
-        <div class="block-header">
-            <h2>DASHBOARD</h2>
-        </div>
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
 
-        <!-- Widgets -->
-        <div class="row clearfix">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-pink hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">playlist_add_check</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">TOTAL POSTS</div>
-                        <div class="number count-to" data-from="0" data-to="{{ $posts->count() }}" data-speed="15" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-cyan hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">favorite</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">TOTAL FAVORITE</div>
-                        <div class="number count-to" data-from="0" data-to="{{ Auth::user() ->favorite_posts()->count()}}" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-light-green hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">library_books</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">PENDING POSTS</div>
-                        <div class="number count-to" data-from="0" data-to="{{ $total_pending_posts }}" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-orange hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">person_add</i>
-                    </div>
-                    <div class="content">
-                        <div class="text">TOTAL VIEWS</div>
-                        <div class="number count-to" data-from="0" data-to="{{ $all_views }}" data-speed="1000" data-fresh-interval="20"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- #END# Widgets -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Dashboard</h4>
 
-
-        <div class="row clearfix">
-            <!-- Task Info -->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>TOP 5 POPULAR POSTS</h2>
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-hover dashboard-task-infos">
-                                <thead>
-                                <tr>
-                                    <th>Rank List</th>
-                                    <th>Title</th>
-                                    <th>Views</th>
-                                    <th>Favorite</th>
-                                    <th>Comments</th>
-                                    <th>Status</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($popular_posts as $key=>$post)
-                                        <tr>
-                                            <td>{{ $key + 1 }}</td>
-                                            <td>{{ str_limit($post->title,30) }}</td>
-                                            <td>{{ $post->view_count }}</td>
-                                            <td>{{ $post->favorite_to_users_count }}</td>
-                                            <td>{{ $post->comments_count }}</td>
-                                            <td>
-                                                @if($post->status == true)
-                                                    <span class="label bg-green">Published</span>
-                                                @else
-                                                    <span class="label bg-red">Pending</span>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- #END# Task Info -->
+                <!-- end row -->
 
-        </div>
+                <div class="row">
+
+                    <div class="col-xl-2 col-lg-4 col-sm-6">
+                        <div class="card-box widget-box-one">
+                            <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
+                            <div class="wigdet-one-content">
+                                <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Total Posts</p>
+                                <h2>{{ $posts->count() }} <small><i class="mdi mdi-postage-stamp text-success"></i></small></h2>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+
+
+                    <div class="col-xl-2 col-lg-4 col-sm-6">
+                        <div class="card-box widget-box-one">
+                            <i class="mdi mdi-layers widget-one-icon"></i>
+                            <div class="wigdet-one-content">
+                                <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Total Favorite</p>
+                                <h2>{{ Auth::user() ->favorite_posts()->count() }}<small><i class="mdi mdi-arrow-top-right text-success"></i></small></h2>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-2 col-lg-4 col-sm-6">
+                        <div class="card-box widget-box-one">
+                            <i class="mdi mdi-av-timer widget-one-icon"></i>
+                            <div class="wigdet-one-content">
+                                <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Request Per Minute">Pending Posts</p>
+                                <h2>{{ $total_pending_posts }}<small><i class="mdi mdi-arrow-up text-danger"></i></small></h2>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-2 col-lg-4 col-sm-6">
+                        <div class="card-box widget-box-one">
+                            <i class="mdi mdi-account-multiple widget-one-icon"></i>
+                            <div class="wigdet-one-content">
+                                <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Total Users">Total Views</p>
+                                <h2>{{ $all_views }}<small><i class="mdi mdi-arrow-down text-danger"></i></small></h2>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+
+
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
+                        <div class="card-box widget-box-on">
+                            <div class="header">
+                                <h4 class="text-info">MOST POPULAR POST</h4>
+                            </div>
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table m-0 table-colored-bordered table-bordered-info">
+                                        <thead>
+                                        <tr>
+                                            <th>Rank</th>
+                                            <th>Title</th>
+                                            <th>Author</th>
+                                            <th>Views</th>
+                                            <th>Favorite</th>
+                                            <th>Comments</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($popular_posts as $key=>$post)
+                                            <tr>
+                                                <td>{{ $key + 1 }}</td>
+                                                <td>{{ str_limit($post->title,'20') }}</td>
+                                                <td>{{ $post->user->name }}</td>
+                                                <td>{{ $post->view_count }}</td>
+                                                <td>{{ $post->favorite_to_users_count }}</td>
+                                                <td>{{ $post->comments_count }}</td>
+                                                <td>
+                                                    @if($post->status == true)
+                                                        <span class="label bg-purple">Published</span>
+                                                    @else
+                                                        <span class="label bg-danger">Pending</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-primary waves-effect" target="_blank" href="{{ route('post.details',$post->slug) }}">View</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end row -->
+
+
+
+                <!-- end row -->
+
+
+
+                <!-- end row -->
+
+            </div> <!-- container-fluid -->
+
+        </div> <!-- content -->
+
+
     </div>
 @endsection
 
 @push('js')
     <!-- Jquery CountTo Plugin Js -->
     <script src="{{ asset('assets/backend/plugins/jquery-countto/jquery.countTo.js') }}"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="{{ asset('assets/backend/plugins/raphael/raphael.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/plugins/morrisjs/morris.js') }}"></script>
+
+    <!-- ChartJs -->
+    <script src="{{ asset('assets/backend/plugins/chartjs/Chart.bundle.js') }}"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="assets/backend/plugins/flot-charts/jquery.flot.js"></script>
+    <script src="assets/backend/plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="assets/backend/plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="assets/backend/plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="assets/backend/plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="assets/backend/plugins/jquery-sparkline/jquery.sparkline.js"></script>
     <script src="{{ asset('assets/backend/js/pages/index.js') }}"></script>
 @endpush

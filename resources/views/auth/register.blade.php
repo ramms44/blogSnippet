@@ -20,7 +20,6 @@
 
     <section class="blog-area section">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-2 col-md-0"></div>
                 <div class="col-lg-8 col-md-12">
@@ -42,8 +41,6 @@
                                 </div>
                             </div>
 
-
-
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
@@ -58,7 +55,9 @@
                                 </div>
                             </div>
 
-
+                            <div class="form-group">
+                                <label for="">Country Id</label>
+                            </div>
 
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -76,13 +75,16 @@
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
-                                <form>
-                                    <div class="form-group">
-                                        <label>Select Country</label><br>
+                                <div class="col-md-6">
+                                    <input id="country" type="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country" value="{{ old('country') }}" required>
 
-                                        <div id="basic" data-input-name="country"></div>
-                                    </div>
-                                </form>
+                                    @if ($errors->has('country'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('country') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+
                             </div>
 
                             <div class="form-group row">
@@ -99,8 +101,6 @@
                                 </div>
                             </div>
 
-
-
                             <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -108,8 +108,6 @@
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
-
-
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

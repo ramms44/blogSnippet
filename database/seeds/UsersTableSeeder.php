@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
             'username' => 'admin',
             'email' => 'admin@blog.com',
             'password' => bcrypt('rootadmin'),
-
+            'country' => 'Indonesia',
         ]);
 
         DB::table('users')->insert([
@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
             'username' => 'author',
             'email' => 'author@blog.com',
             'password' => bcrypt('rootauthor'),
-
+            'country' => 'Indonesia',
         ]);
     }
 }

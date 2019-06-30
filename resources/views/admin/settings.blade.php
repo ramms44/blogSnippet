@@ -12,32 +12,28 @@
             <div class="container-fluid">
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header">
-                                <h2>
-                                    SETTINGS
-                                </h2>
+                                <h4>
+                                    <b>Settings</b>
+                                </h4>
 
                             </div>
+
+                            <br><br>
+
                             <div class="body">
                                 <!-- Nav tabs -->
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active">
-                                        <a href="#profile_with_icon_title" data-toggle="tab">
-                                            <i class="material-icons">face</i> UPDATE PROFILE
-                                        </a>
-                                    </li>
-                                    <li role="presentation">
-                                        <a href="#change_password_with_icon_title" data-toggle="tab">
-                                            <i class="material-icons">change_history</i> CHANGE PASSWORD
-                                        </a>
-                                    </li>
 
-                                </ul>
 
-                                <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade in active" id="profile_with_icon_title">
+
+                                <div class="header">
+                                    <h4>
+                                        Update Profile
+                                    </h4>
+
+                                </div>
+                                <br>
                                         <form method="POST" action="{{ route('admin.profile.update') }}" class="form-horizontal" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
@@ -93,12 +89,19 @@
 
                                             <div class="row clearfix">
                                                 <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                                                    <button type="submit" class="btn btn-sm btn-purple m-t-15 waves-effect">Update Profile</button>
                                                 </div>
                                             </div>
                                         </form>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="change_password_with_icon_title">
+                                <br><br>
+
+                                <div class="header">
+                                    <h4>
+                                        Update Password
+                                    </h4>
+
+                                </div>
+<br>
                                         <form method="POST" action="{{ route('admin.password.update') }}" class="form-horizontal">
                                             @csrf
                                             @method('PUT')
@@ -145,13 +148,16 @@
 
                                             <div class="row clearfix">
                                                 <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                                                    <button type="submit" class="btn btn-sm btn-purple m-t-15 waves-effect">Change Password</button>
                                                 </div>
                                             </div>
                                         </form>
-                                    </div>
-                                </div>
+
+                                <!-- Tab panes -->
+
                             </div>
+
+
                         </div>
                     </div>
                 </div>

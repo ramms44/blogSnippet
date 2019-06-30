@@ -15,24 +15,24 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header">
-                                <h2>
-                                    ALL FAVORITE POSTS
-                                    <span class="badge bg-blue">{{ $posts->count() }}</span>
-                                </h2>
+                                <h4>
+                                    All Favorite Post
+                                    <span class="badge-pill bg-primary">{{ $posts->count() }}</span>
+                                </h4>
                             </div>
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <table class="table m-0 table-colored-bordered table-bordered-purple">
                                         <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Title</th>
                                             <th>Author</th>
-                                            <th><i class="material-icons">favorite</i></th>
+                                            <th><i class="mdi mdi-cards-heart"></i></th>
                                             {{--<th><i class="material-icons">comment</i><</th>--}}
-                                            <th><i class="material-icons">visibility</i></th>
+                                            <th><i class="mdi mdi-eye"></i></th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -41,9 +41,9 @@
                                             <th>ID</th>
                                             <th>Title</th>
                                             <th>Author</th>
-                                            <th><i class="material-icons">favorite</i></th>
+                                            <th><i class="mdi mdi-cards-heart"></i></th>
                                             {{--<th><i class="material-icons">comment</i><</th>--}}
-                                            <th><i class="material-icons">visibility</i></th>
+                                            <th><i class="mdi mdi-eye"></i></th>
                                             <th>Action</th>
                                         </tr>
                                         </tfoot>
@@ -58,11 +58,11 @@
                                                 <td class="text-center">
 
                                                     <a href="{{ route('admin.post.show',$post->id) }}" class="btn btn-info waves-effect">
-                                                        <i class="material-icons">visibility</i>
+                                                        <i class="mdi mdi-eye"></i>
                                                     </a>
 
                                                     <button class="btn btn-danger waves-effect" type="button" onclick="removePost({{ $post->id }})">
-                                                        <i class="material-icons">delete</i>
+                                                        <i class="mdi mdi-delete-empty"></i>
                                                     </button>
                                                     <form id="remove-form-{{ $post->id }}" action="{{ route('post.favorite',$post->id) }}" method="POST" style="display: none;">
                                                         @csrf

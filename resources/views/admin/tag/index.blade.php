@@ -20,17 +20,17 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header">
-                                <h2>
-                                    ALL TAGS
-                                    <span class="badge bg-blue">{{ $tags->count() }}</span>
-                                </h2>
+                                <h4>
+                                    All Tags
+                                    <span class="badge-pill bg-primary">{{ $tags->count() }}</span>
+                                </h4>
                             </div>
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                        <thead>
+                                    <table class="table m-0">
+                                        <thead class="bg-purple text-white">
                                         <tr>
                                             <th>ID</th>
                                             <th>Name</th>
@@ -59,11 +59,13 @@
                                                 <td>{{ $tag->created_at }}</td>
                                                 <td>{{ $tag->updated_at }}</td>
                                                 <td class="text-center">
-                                                    <a href="{{ route('admin.tag.edit',$tag->id) }}" class="btn btn-info waves-effect">
-                                                        <i class="material-icons">edit</i>
+                                                    <a href="{{ route('admin.tag.edit',$tag->id) }}" class="btn btn-primary waves-effect">
+                                                        <i class="mdi mdi-pencil-outline"></i>
                                                     </a>
+
+
                                                     <button class="btn btn-danger waves-effect" type="button" onclick="deleteTag({{ $tag->id }})">
-                                                        <i class="material-icons">delete</i>
+                                                        <i class="mdi mdi-delete-empty"></i>
                                                     </button>
                                                     <form id="delete-form-{{ $tag->id }}" action="{{ route('admin.tag.destroy',$tag->id) }}" method="POST" style="display: none;">
                                                         @csrf
@@ -101,7 +103,7 @@
     <script src="{{ asset('assets/backend/plugins/jquery-datatable/extensions/export/buttons.print.min.js') }}"></script>
 
     <script src="{{ asset('assets/backend/js/pages/tables/jquery-datatable.js') }}"></script>
-    <script src="https://unpkg.com/sweetalert2@7.19.1/dist/sweetalert2.all.js"></script>
+    <script src="{{ asset('assets/backend/js/sweetalert2.all.js') }}"></script>
     <script type="text/javascript">
         function deleteTag(id) {
             swal({

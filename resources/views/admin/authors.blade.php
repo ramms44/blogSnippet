@@ -14,16 +14,16 @@
                 <!-- Exportable Table -->
                 <div class="row clearfix">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
+                        <div class="card-box widget-box-one">
                             <div class="header">
-                                <h2>
-                                    ALL AUTHORS
-                                    <span class="badge bg-blue">{{ $authors->count() }}</span>
-                                </h2>
+                                <h4>
+                                    All Authors
+                                    <span class="badge-pill bg-primary">{{ $authors->count() }}</span>
+                                </h4>
                             </div>
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <table class="table m-0 table-colored-bordered table-bordered-purple">
                                         <thead>
                                         <tr>
                                             <th>ID</th>
@@ -57,7 +57,7 @@
                                                 <td>{{ $author->created_at}}</td>
                                                 <td class="text-center">
                                                     <button class="btn btn-danger waves-effect" type="button" onclick="deleteAuthors({{ $author->id }})">
-                                                        <i class="material-icons">delete</i>
+                                                        <i class="mdi mdi-delete-empty"></i>
                                                     </button>
                                                     <form id="delete-form-{{ $author->id }}" action="{{ route('admin.author.destroy',$author->id) }}" method="POST" style="display: none;">
                                                         @csrf

@@ -23,18 +23,20 @@
                     @csrf
                     <div class="row clearfix">
                         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                            <div class="card">
+                            <div class="card-box widget-box-one">
                                 <div class="header">
-                                    <h2>
-                                        ADD NEW POST
-                                    </h2>
-                                </div>
+                                    <h4>
+                                        Add New Post
+                                    </h4>
 
+                                </div>
+                                <br>
                                 <div class="body">
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" id="title" class="form-control" name="title">
                                             <label class="form-label">Post Title</label>
+                                            <input type="text" id="title" class="form-control" name="title">
+
                                         </div>
                                     </div>
 
@@ -52,11 +54,11 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <div class="card">
+                            <div class="card-box widget-box-one">
                                 <div class="header">
-                                    <h2>
+                                    <h4>
                                         Categories Tags and Ads
-                                    </h2>
+                                    </h4>
                                 </div>
                                 <div class="body">
 
@@ -95,8 +97,8 @@
                                         </div>
                                     </div>
 
-                                    <a  class="btn btn-danger m-t-15 waves-effect" href="{{ route('admin.category.index') }}">BACK</a>
-                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
+                                    <a  class="btn btn-sm btn-danger m-t-15 waves-effect" href="{{ route('admin.category.index') }}">BACK</a>
+                                    <button type="submit" class="btn btn-sm btn-primary m-t-15 waves-effect">SUBMIT</button>
 
                                 </div>
                             </div>
@@ -104,18 +106,18 @@
                     </div>
                     <div class="row clearfix">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="card">
+                            <div class="card-box widget-box-one">
                                 <div class="header">
-                                    <h2>
+                                    <h4>
                                         Add Your Snippets Code
-                                    </h2>
+                                    </h4>
                                 </div>
                                 <div class="body">
 
-                                    <h3>Code Snippet auto preview</h3><a class="clearLink" href="#" title="Click to clear all">clear</a>
                                     <textarea id="html" value="" placeholder="HTML" autocapitalize="off" name="html"></textarea>
                                     <textarea id="css" value="" placeholder="CSS" autocapitalize="off" name="css"></textarea>
                                     <textarea id="js" value="" placeholder="JavaScript" autocapitalize="off" name="js"></textarea>
+
                                     <iframe id="preview"></iframe>
 
                                 </div>
