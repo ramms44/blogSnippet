@@ -111,8 +111,44 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
-                        <div class="card-box widget-box-one">
+                    <div class="col-xl-6">
+                        <div class="card-box">
+                            <div class="body">
+                                <div id="chartMostPopularPost"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="card-box">
+                            <div class="body">
+                                <div id="chartTopCountries"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="card-box">
+                            <div class="body">
+                                <div id="chartRecentMember"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="card-box">
+                            <div class="body">
+                                <div id="chartTopMember"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="card-box ">
                             <div class="header">
                                 <h4 class="text-primary">MOST POPULAR POST</h4>
                             </div>
@@ -127,7 +163,7 @@
                                             <th>Country</th>
                                             <th>Views</th>
                                             <th>Favorite</th>
-                                            <th>Comments</th>
+
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -141,7 +177,7 @@
                                                 <td><p>{{ $post->user->country }}</p><p><span class="flag-icon flag-icon-id"></span></p></td>
                                                 <td>{{ $post->view_count }}</td>
                                                 <td>{{ $post->favorite_to_users_count }}</td>
-                                                <td>{{ $post->comments_count }}</td>
+
                                                 <td>
                                                     @if($post->status == true)
                                                         <span class="label bg-purple">Published</span>
@@ -162,8 +198,8 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
-                        <div class="card-box widget-box-one">
+                    <div class="col-xl-6">
+                        <div class="card-box">
                             <div class="header">
                                 <h4 class="text-primary">TOP MEMBER</h4>
                             </div>
@@ -173,12 +209,12 @@
                                         <thead class="bg-primary text-white">
                                         <tr>
                                             <th>Rank</th>
-                                            <th>Title</th>
+
                                             <th>Author</th>
                                             <th>Country</th>
                                             <th>Views</th>
                                             <th>Favorite</th>
-                                            <th>Comments</th>
+
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -187,12 +223,12 @@
                                         @foreach($popular_posts as $key=>$post)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
-                                                <td>{{ str_limit($post->title,'20') }}</td>
+
                                                 <td><p>{{ $post->user->name }}</p><p><a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img width="50" height="50" src="{{ Storage::disk('public')->url('profile/'.$post->user->image) }}" alt="Profile Image"></a></p></td>
                                                 <td><p>{{ $post->user->country }}</p><p><span class="flag-icon flag-icon-id"></span></p></td>
                                                 <td>{{ $post->view_count }}</td>
                                                 <td>{{ $post->favorite_to_users_count }}</td>
-                                                <td>{{ $post->comments_count }}</td>
+
                                                 <td>
                                                     @if($post->status == true)
                                                         <span class="label bg-purple">Published</span>
@@ -212,8 +248,8 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
-                        <div class="card-box widget-box-one">
+                    <div class="col-xl-6">
+                        <div class="card-box">
                             <div class="header">
                                 <h4 class="text-purple">RECENT MEMBER</h4>
                             </div>
@@ -223,13 +259,10 @@
                                         <thead class="bg-purple text-white">
                                         <tr>
                                             <th>Member</th>
-
+                                            <th>Title</th>
 
                                             <th>Country</th>
-                                            <th>Views</th>
-                                            <th>Favorite</th>
-                                            <th>Comments</th>
-                                            <th>Status</th>
+
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -237,17 +270,9 @@
                                         @foreach($popular_posts as $key=>$post)
                                             <tr>
                                                 <td><p>{{ $post->user->name }}</p><p><a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img width="50" height="50" src="{{ Storage::disk('public')->url('profile/'.$post->user->image) }}" alt="Profile Image"></a></p></td>
+                                                <td>{{ str_limit($post->title,'20') }}</td>
                                                 <td><p>{{ $post->user->country }}</p><p><span class="flag-icon flag-icon-id"></span></p></td>
-                                                <td>{{ $post->view_count }}</td>
-                                                <td>{{ $post->favorite_to_users_count }}</td>
-                                                <td>{{ $post->comments_count }}</td>
-                                                <td>
-                                                    @if($post->status == true)
-                                                        <span class="label bg-purple">Published</span>
-                                                    @else
-                                                        <span class="label bg-danger">Pending</span>
-                                                    @endif
-                                                </td>
+
                                                 <td>
                                                     <a class="btn btn-sm btn-primary waves-effect" target="_blank" href="{{ route('post.details',$post->slug) }}">View</a>
                                                 </td>
@@ -260,8 +285,9 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
-                        <div class="card-box widget-box-one">
+
+                    <div class="col-xl-6">
+                        <div class="card-box">
                             <div class="header">
                                 <h4 class="text-purple">TOP COUNTRIES</h4>
                             </div>
@@ -271,8 +297,9 @@
                                         <thead class="bg-purple text-white">
                                         <tr>
                                             <th>Rank</th>
+                                            <th>Title</th>
                                             <th>Country</th>
-                                            <th>Status</th>
+
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -280,15 +307,10 @@
                                         @foreach($popular_posts as $key=>$post)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
+                                                <td>{{ str_limit($post->title,'20') }}</td>
                                                 <td><p>{{ $post->user->country }}</p><p><span class="flag-icon flag-icon-id"></span></p></td>
 
-                                                <td>
-                                                    @if($post->status == true)
-                                                        <span class="label bg-purple">Published</span>
-                                                    @else
-                                                        <span class="label bg-danger">Pending</span>
-                                                    @endif
-                                                </td>
+
                                                 <td>
                                                     <a class="btn btn-sm btn-primary waves-effect" target="_blank" href="{{ route('post.details',$post->slug) }}">View</a>
                                                 </td>
@@ -300,6 +322,9 @@
                             </div>
                         </div>
                     </div>
+
+
+
                 </div>
                 <!-- end row -->
 
@@ -342,4 +367,326 @@
     <script src="{{ asset('assets/backend/js/pages/index.js') }}"></script>
     <script src="{{ asset('assets/backend/js/sweetalert2.all.js') }}"></script>
     <script src="{{ asset('assets/backend/js/docs.js') }}"></script>
+
+    <script src="{{ asset('assets/backend/js/highcharts.js') }}"></script>
+    <script>
+        var colors = Highcharts.getOptions().colors,
+            categories = [
+                'Laravel',
+                'PHP',
+                'Bootstrap',
+                'Codeigniter'
+            ],
+            data = [
+                {
+                    y: 62.74,
+                    color: colors[2],
+                    drilldown: {
+                        name: 'Laravel',
+                        categories: [
+                            'Laravel v65.0',
+                            'Laravel v64.0',
+                            'Laravel v63.0',
+                            'Laravel v62.0',
+                            'Laravel v61.0'
+                        ],
+                        data: [
+                            0.1,
+                            1.3,
+                            53.02,
+                            1.4,
+                            0.88
+                        ]
+                    }
+                },
+                {
+                    y: 10.57,
+                    color: colors[1],
+                    drilldown: {
+                        name: 'PHP',
+                        categories: [
+                            'PHP v58.0',
+                            'PHP v57.0',
+                            'PHP v56.0'
+                        ],
+                        data: [
+                            1.02,
+                            7.36,
+                            0.35
+                        ]
+                    }
+                },
+                {
+                    y: 7.23,
+                    color: colors[0],
+                    drilldown: {
+                        name: 'Bootstrap',
+                        categories: [
+                            'Bootstrap v11.0',
+                            'Bootstrap v10.0',
+                            'Bootstrap v9.0',
+                            'Bootstrap v8.0'
+                        ],
+                        data: [
+                            6.2,
+                            0.29,
+                            0.27,
+                            0.47
+                        ]
+                    }
+                },
+                {
+                    y: 5.58,
+                    color: colors[3],
+                    drilldown: {
+                        name: 'Codeigniter',
+                        categories: [
+                            'Codeigniter v11.0',
+                            'Codeigniter v10.1',
+                            'Codeigniter v10.0',
+                            'Codeigniter v9.1',
+                            'Codeigniter v9.0',
+                            'Codeigniter v5.1'
+                        ],
+                        data: [
+                            3.39,
+                            0.96,
+                            0.36,
+                            0.54,
+                            0.13,
+                            0.2
+                        ]
+                    }
+                },
+
+                {
+                    y: 7.62,
+                    color: colors[6],
+                    drilldown: {
+                        name: 'Other',
+                        categories: [
+                            'Other'
+                        ],
+                        data: [
+                            7.62
+                        ]
+                    }
+                }
+            ],
+            browserData = [],
+            versionsData = [],
+            i,
+            j,
+            dataLen = data.length,
+            drillDataLen,
+            brightness;
+
+
+        // Build the data arrays
+        for (i = 0; i < dataLen; i += 1) {
+
+            // add browser data
+            browserData.push({
+                name: categories[i],
+                y: data[i].y,
+                color: data[i].color
+            });
+
+            // add version data
+            drillDataLen = data[i].drilldown.data.length;
+            for (j = 0; j < drillDataLen; j += 1) {
+                brightness = 0.2 - (j / drillDataLen) / 5;
+                versionsData.push({
+                    name: data[i].drilldown.categories[j],
+                    y: data[i].drilldown.data[j],
+                    color: Highcharts.Color(data[i].color).brighten(brightness).get()
+                });
+            }
+        }
+
+        // Create the chart
+        Highcharts.chart('chartMostPopularPost', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Most Popular Post Snippets'
+            },
+
+            plotOptions: {
+                pie: {
+                    shadow: false,
+                    center: ['50%', '50%']
+                }
+            },
+            tooltip: {
+                valueSuffix: '%'
+            },
+            series: [{
+                name: 'Snippets',
+                data: browserData,
+                size: '60%',
+                dataLabels: {
+                    formatter: function () {
+                        return this.y > 5 ? this.point.name : null;
+                    },
+                    color: '#ffffff',
+                    distance: -30
+                }
+            }, {
+                name: 'Versions',
+                data: versionsData,
+                size: '80%',
+                innerSize: '60%',
+                dataLabels: {
+                    formatter: function () {
+                        // display only if larger than 1
+                        return this.y > 1 ? '<b>' + this.point.name + ':</b> ' +
+                            this.y + '%' : null;
+                    }
+                },
+                id: 'versions'
+            }],
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 400
+                    },
+                    chartOptions: {
+                        series: [{
+                        }, {
+                            id: 'versions',
+                            dataLabels: {
+                                enabled: false
+                            }
+                        }]
+                    }
+                }]
+            }
+        });
+    </script>
+    <script>
+        Highcharts.chart('chartTopCountries', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Top Countries'
+            },
+
+            xAxis: {
+                categories: [
+                    'Indonesia',
+                    'USA',
+                    'Japan',
+                    'Australia',
+
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Countries'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} Members</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Country',
+                data: [{{ $users->count() }}, 2, 1, 3]
+
+            }]
+        });
+    </script>
+
+    <script>
+        Highcharts.chart('chartRecentMember', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Recent Member'
+            },
+            xAxis: {
+                categories: ['Bootstrap', 'PHP', 'CSS', 'JS', 'Carousel']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total snippet post'
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+            series: [{
+                name: 'Admin',
+                data: [5, 3, 4, 7, 2]
+            }, {
+                name: 'Author',
+                data: [2, 2, 3, 2, 1]
+            }, {
+                name: 'Member',
+                data: [3, 4, 4, 2, 5]
+            }]
+        });
+    </script>
+
+    <script>
+        Highcharts.chart('chartTopMember', {
+            chart: {
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45,
+                    beta: 0
+                }
+            },
+            title: {
+                text: 'Top Member'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    depth: 35,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}'
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Create Posts Snippets',
+                data: [
+                    ['Admin', 6.0],
+                    ['Author', 3.8],
+                    ['Member', 40.5],
+                    ['User', 50.2]
+                ]
+            }]
+        });
+    </script>
 @endpush

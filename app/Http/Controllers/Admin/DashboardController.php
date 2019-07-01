@@ -36,7 +36,8 @@ class DashboardController extends Controller
                                 ->take(10)->get();
        $category_count = Category::all()->count();
        $tag_count = Tag::all()->count();
+        $users = User::all();
 
-        return view('admin.dashboard',compact('posts','popular_posts','total_pending_posts','all_views','author_count','new_authors_today','active_authors','category_count','tag_count'));
+        return view('admin.dashboard',compact('posts','popular_posts','total_pending_posts','all_views','author_count','new_authors_today','active_authors','category_count','tag_count','users'));
     }
 }
